@@ -1,0 +1,116 @@
+/* Box Model Hack */
+* {
+     box-sizing: border-box;
+}
+
+/*
+     Here, I practiced using variables in CSS
+     You declare a variable with:
+          --variableName-propertyName: value
+
+     When you need to use the value, you'd use:
+          var(--variableName-propertyName)
+
+     Here's the MDN for more information
+          https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+*/
+:root {
+     --tileSize-width: 150px;                /*variable for the size of each tic tac toe tile*/
+     --main-background-color: #0da192;     /*variable for the general background color*/
+     --textAndBorder-color: #086d63;       /*variable for the text and border color*/
+     --mainHover-background-color: #10c7b4;/*variable for tile color when the mouse is hovering over it*/
+}
+
+body {
+     font-family: Arial, Helvetica, sans-serif;
+     background: var(--main-background-color)
+}
+
+h1 {
+     font-size: 4rem;
+     font-weight: 700;
+}
+
+button {
+     /* I used the same variable for the height AND width of each tile */
+     width: var(--tileSize-width);
+     height: var(--tileSize-width);
+
+     /* And here I used the matching variables for the background and border colors */
+     background: var(--main-background-color);
+     border: 5px solid var(--textAndBorder-color);
+
+     /* here I modify the color, size, and boldness of the "X" and "O" text that will appear */
+     color: var(--textAndBorder-color);
+     font-size: 5.5rem;
+     font-weight: 700;
+}
+
+button:hover {
+     /* I give each tile a lighter color if the mouse is hovering over it*/
+     background: var(--mainHover-background-color);
+}
+
+/* the top, right, left, and bottom classes remove the outside border of the "#" shape.*/
+.top {
+     border-top: 0px;
+}
+
+.bottom {
+     border-bottom: 0px;
+}
+
+.left {
+     border-left: 0px;
+}
+
+.right {
+     border-right: 0px
+}
+
+/* This is our section that contains everything in our <body>*/
+.wrapper {
+     margin: 0 auto;
+     text-align: center;
+
+     /* I used calc() to give this section 3x the width of a tile, so that it lines up nicely */
+     width: calc(var(--tileSize-width) * 3);
+}
+
+
+
+/*
+     this section contains our 3x3 tiles 
+     the width and height are exactly 3x of a tile, otherwise, the tiles may space apart from eachother
+
+     notice I didn't use "justify-content" nor "align items" because the tiles are packed so close together it won't matter
+
+     If anyone is rusty on flexbox, remember this:
+     when you're using floats, you apply them to the elements themselves,
+     when you're using flex, you apply it to the element's parent container
+
+     (optional) try making the width and height bigger, or play around with adding in "justify-content" and "align-items!"
+*/
+
+.grid {
+     display: flex;
+     flex-wrap:wrap;
+     width: calc(var(--tileSize-width) * 3);
+     height: calc(var(--tileSize-width) * 3);
+     /* padding-top: var(--tileSize-width) */
+}
+
+/*
+     This section wraps around our <h1>.  The width and height are important so that the tiles
+     don't get pushed downward when we print something to the <h1>
+*/
+.outputCont {
+     display:flex;
+     justify-content: center;
+     align-items:center;
+     width: calc(var(--tileSize-width) * 3);
+     height: calc(var(--tileSize-width) * 1);
+     /* background: var(--main-background-color);
+     border: 5px solid #086d63; */
+     color: var(--textAndBorder-color);
+}

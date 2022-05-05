@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="A little example for tic-tac-toe">
+    	<meta name="keywords" content="game, tic-tac-toe">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Tic Tac Toe</title>
+
+		<!-- external CSS links -->
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+
+		<!-- the "wrapper" section centers the content-->
+			<section class="wrapper">
+				<!-- this h1 prints out whether the "X" or "O" side won-->
+					<section class="outputCont" >
+						<h1 id="output"></h1>
+					</section>
+				<!-- this section named "grid" uses flexbox to align all of the buttons into a 3x3 grid -->
+					<section class="grid">
+						<!-- these buttons have top, bottom, left, and right class names to tell
+						the css to remove the outer border and leave a "#" pattern-->
+							<button class="top left"></button>
+							<button class="top"></button>
+							<button class="top right"></button>				
+							
+							<button class="left"></button>
+							<button></button>
+							<button class="right"></button>
+
+							<button class="bottom left"></button>
+							<button class="bottom"></button>
+							<button class="bottom right"></button>
+			</section>
+		</section>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
